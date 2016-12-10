@@ -10,7 +10,7 @@ autoload -U compinit
 compinit
 
 pgrep -u $USER gpg-agent > /dev/null || gpg-agent --daemon > ~/.gpgagent
-test -e ~/.gpgagent && source ~/.gpgagent
+test -e ~/.gpgagent && test -z $SSH_AUTH_SOCK && source ~/.gpgagent
 
 ## Variables
 
