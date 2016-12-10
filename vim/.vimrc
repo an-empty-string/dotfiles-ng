@@ -70,18 +70,9 @@ set laststatus=2
 set background=dark
 set undodir=~/.vim/undo
 set undofile
-set undolevels=1000 "maximum number of changes that can be undone
-set undoreload=10000 "maximum number lines to save for undo on a buffer reload
-
+set undolevels=1000
+set undoreload=10000
 set t_Co=256
-let g:airline_powerline_fonts = 1
-let g:neocomplete#enable_at_startup = 1
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
