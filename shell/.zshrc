@@ -9,11 +9,8 @@ alias ls="ls --color=auto"
 autoload -U compinit
 compinit
 
-if ! pgrep -u $USER gpg-agent > /dev/null
-then
-    gpg-agent --daemon > ~/.gpgagent
-fi
-source ~/.gpgagent
+pgrep -u $USER gpg-agent > /dev/null || gpg-agent --daemon > ~/.gpgagent
+test -e ~/.gpgagent && source ~/.gpgagent
 
 ## Variables
 
