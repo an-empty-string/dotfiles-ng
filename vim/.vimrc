@@ -24,8 +24,6 @@ set splitbelow
 syntax on
 filetype plugin indent on
 
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> <leader>w :set wrap!<CR>
 nmap <silent> <leader>h :noh<CR>
 
@@ -60,12 +58,10 @@ nmap <silent> <F12> :call <SID>ToggleMouse()<CR>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 nnoremap Q <nop>
 
-let g:localvimrc_whitelist = ".*"
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 let g:ctrlp_map = "<c-p>"
-set laststatus=2
 
 set background=dark
 set undodir=~/.vim/undo
@@ -78,20 +74,10 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Syntastic'
 Plugin 'Mustang2'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'tpope/vim-speeddating'
-Plugin 'mattn/calendar-vim'
-Plugin 'vim-scripts/utl.vim'
-Plugin 'jceb/vim-orgmode'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-Plugin 'jreybert/vimagit'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-easymotion'
 Plugin 'jamessan/vim-gnupg'
 
 call vundle#end()
