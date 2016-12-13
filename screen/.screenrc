@@ -1,0 +1,3 @@
+hardstatus alwayslastline
+hardstatus string "%{= .}%{= dC}%c:%s%{-} %{= dg}%H%{=b dy} [%l] %=%{= dd}(%-w%{=ub dd}%n %t%{= .}%+w)"
+term screen-256color
