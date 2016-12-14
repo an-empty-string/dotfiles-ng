@@ -19,11 +19,7 @@ test -e ~/.gpgagent && test -z $SSH_AUTH_SOCK && source ~/.gpgagent
 
 ## Variables
 
-if test -e /etc/salt/minion && grep "role: workstation" /etc/salt/minion > /dev/null; then
-    promptcolor=green
-else
-    promptcolor=yellow
-fi
+if test -z $SSH_CONNECTION; then promptcolor=green; else; promptcolor=red; fi
 
 PROMPT="%F{${promptcolor}}%n@%m %F{blue}%3~ %F{red}%B%#%f%b "
 PATH=$PATH:~/.local/bin
