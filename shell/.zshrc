@@ -9,6 +9,10 @@ alias ls="ls --color=auto"
 setopt AUTO_CD
 setopt AUTO_PUSHD
 
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+
 ## Functionality
 
 autoload -U compinit
