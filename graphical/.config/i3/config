@@ -57,7 +57,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+r restart
 
 bindsym $mod+Shift+e exit
-bindsym $mod+Shift+z exec "i3lock -i ~/images/backgrounds/lock.png"
+bindsym $mod+Shift+z exec "i3lock -c black"
 
 bindsym $mod+q exec "i3-input"
 bindsym $mod+p exec "passmenu"
