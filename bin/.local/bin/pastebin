@@ -1,0 +1,49 @@
+#!/usr/bin/env python
+
+import os.path
+import requests
+import sys
+import yaml
+
+SERVICE = "paste"
+CONFIG_PATH = os.path.expanduser("~/.services.yaml")
+
+if not os.path.exists(CONFIG_PATH):
+    sys.stderr.write("Error: config not found ({})\n".format(CONFIG_PATH))
+    sys.exit(1)
+
+with open(os.path.expanduser(CONFIG_PATH)) as f:
+    config = yaml.load(f)
+
+if SERVICE not in config:
+    sys.stderr.write("Error: no configuration available for service ({})\n".format(SERVICE))
+    sys.exit(1)
+
+config = config[SERVICE]
+
+import argparse
+parser = argparse.ArgumentParser(description="Pastebin a file or the contents of standard input")
+parser.add_argument("filename", nargs="?", action="store", default=None, help="specify the file to pastebin")
+args = parser.parse_args()
+
+if args.filename is None:
+    f = sys.stdin
+    sys.stderr.write("Reading from stdin...\n")
+    sys.stderr.flush()
+else:
+    f = open(args.filename)
+
+data = f.read()
+f.close()
+
+url = "{url}/api/create/?key={key}".format(**config)
+result = requests.post(url, data=data)
+if result.status_code == 200:
+    print(result.text)
+    sys.exit(0)
+elif result.status_code == 403:
+    sys.stderr.write("Error: Invalid API key\n")
+else:
+    sys.stderr.write("Error: {}\n".format(result))
+
+sys.exit(1)
