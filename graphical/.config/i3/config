@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:Terminus 11
+font pango:xos4 Terminus 11
 floating_modifier $mod
 new_window 1pixel
 
