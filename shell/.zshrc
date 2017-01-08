@@ -33,7 +33,8 @@ eval $(dircolors ~/.dircolors)
 vicolor="blue"
 vimode="INSERT"
 
-PROMPT="%F{white}%K{${vicolor}}%B ${vimode} %b%k%f %F{${promptcolor}}%n@%m %F{blue}%3~ %F{red}%B%#%f%b "
+PROMPT="%F{${promptcolor}}%n@%m %F{blue}%3~ %F{red}%B%#%f%b "
+RPROMPT="%F{white}%K{blue}%B INSERT %b%k%f"
 PATH=$PATH:~/.local/bin:~/perl5/bin
 EDITOR=vim
 
@@ -56,7 +57,7 @@ function zle-line-init zle-keymap-select rprompt {
         vicmd) vimode="NORMAL"; vicolor="green";;
         *) vimode="INSERT"; vicolor="blue";;
     esac
-    PROMPT="%F{white}%K{${vicolor}}%B ${vimode} %b%k%f %F{${promptcolor}}%n@%m %F{blue}%3~ %F{red}%B%#%f%b "
+    RPROMPT="%F{white}%K{${vicolor}}%B ${vimode} %b%k%f"
     zle reset-prompt
 }
 
