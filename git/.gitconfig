@@ -1,3 +1,16 @@
 [user]
     name = Fox Wilson
     email = foxwilson123@gmail.com
+
+[color]
+    ui = auto
+
+[color "branch"]
+    current = yellow bold
+    local = green bold
+    remote = cyan bold
+
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red bold

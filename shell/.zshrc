@@ -21,6 +21,8 @@ compinit
 pgrep -u $USER gpg-agent > /dev/null || gpg-agent --daemon > ~/.gpgagent
 test -e ~/.gpgagent && test -z $SSH_AUTH_SOCK && source ~/.gpgagent
 
+source /usr/share/autojump/autojump.zsh
+
 ## Variables
 
 if test -z $SSH_CONNECTION; then promptcolor=green; else; promptcolor=yellow; fi
