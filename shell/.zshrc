@@ -23,12 +23,17 @@ test -e ~/.gpgagent && test -z $SSH_AUTH_SOCK && source ~/.gpgagent
 
 source /usr/share/autojump/autojump.zsh
 
+bindkey -v
+
 ## Variables
 
 if test -z $SSH_CONNECTION; then promptcolor=green; else; promptcolor=yellow; fi
 eval $(dircolors ~/.dircolors)
 
-PROMPT="%F{${promptcolor}}%n@%m %F{blue}%3~ %F{red}%B%#%f%b "
+vicolor="blue"
+vimode="INSERT"
+
+PROMPT="%F{white}%K{${vicolor}}%B ${vimode} %b%k%f %F{${promptcolor}}%n@%m %F{blue}%3~ %F{red}%B%#%f%b "
 PATH=$PATH:~/.local/bin:~/perl5/bin
 EDITOR=vim
 
@@ -39,10 +44,21 @@ export PERL_MM_OPT="INSTALL_BASE=/home/fwilson/perl5"
 
 ## Functions
 
-dotenv() {
+function dotenv {
     (
         test -e .env && source .env
         eval $@
     )
 }
 
+function zle-line-init zle-keymap-select rprompt {
+    case $KEYMAP in
+        vicmd) vimode="NORMAL"; vicolor="green";;
+        *) vimode="INSERT"; vicolor="blue";;
+    esac
+    PROMPT="%F{white}%K{${vicolor}}%B ${vimode} %b%k%f %F{${promptcolor}}%n@%m %F{blue}%3~ %F{red}%B%#%f%b "
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
