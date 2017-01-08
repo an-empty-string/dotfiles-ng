@@ -69,6 +69,8 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 set t_Co=256
+set laststatus=2
+let g:airline_powerline_fonts=1
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -81,6 +83,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-airline/vim-airline'
 
 call vundle#end()
 filetype plugin indent on
