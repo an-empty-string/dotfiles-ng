@@ -14,7 +14,7 @@ p = round(pct() * 100)
 if p > 100:
     p = 100
 
-dt = "+" if c else "-"
+dt = ("+" if c else "-") if p < 100 else ""
 if len(sys.argv) < 2 or sys.argv[1] != "prompt":
     print("{}%{}".format(p, dt))
     print(p)
@@ -22,4 +22,5 @@ if len(sys.argv) < 2 or sys.argv[1] != "prompt":
     print("#%02x%02x%02x" % (int(r*256), int(g*256), int(b*256)))
 else:
     color = "red" if p < 20 else "yellow" if p < 40 else "green"
+    color = "232"
     print("%F{{{}}}{}%%{}%f".format(color, p, dt))
