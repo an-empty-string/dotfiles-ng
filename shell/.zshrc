@@ -22,7 +22,7 @@ rightsep=""
 
 PROMPT="%F{${promptcolor}}%n@%m %F{blue}%3~ %F{red}%B%#%f%b "
 PATH=$PATH:~/.local/bin:~/perl5/bin
-EDITOR=vim
+export EDITOR=vim
 
 export PERL5LIB="/home/fwilson/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 export PERL_LOCAL_LIB_ROOT="/home/fwilson/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"

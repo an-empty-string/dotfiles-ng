@@ -1,13 +1,29 @@
 #!/usr/bin/env python
-base = "/sys/class/power_supply/BAT0/"
+prefix = "/sys/class/power_supply/BAT0"
+
 import colorsys
 import sys
 
+def int_from_file(name):
+    with open("{}/{}".format(prefix, name)) as f:
+        return int(f.read().strip())
+
+def in_file(name, test):
+    with open("{}/{}".format(prefix, name)) as f:
+        return test in f.read()
+
+def hours_to_h2m(hours):
+    h = int(hours)
+    m = int((hours - h) * 60)
+    return "{}h{}m".format(h, str(m).zfill(2))
+
 def pct():
-    return int(open(base + "charge_now").read().strip()) / int(open(base + "charge_full").read().strip())
+    return int_from_file("charge_now") / int_from_file("charge_full")
 
 def charging():
-    return "Dis" not in open(base + "status").read()
+    return not in_file("status", "Dis")
+
+is_prompt = (len(sys.argv) > 1 and sys.argv[1] == "prompt")
 
 c = charging()
 p = round(pct() * 100)
@@ -15,12 +31,13 @@ if p > 100:
     p = 100
 
 dt = ("+" if c else "-") if p < 100 else ""
-if len(sys.argv) < 2 or sys.argv[1] != "prompt":
-    print("{}%{}".format(p, dt))
+rs = hours_to_h2m(int_from_file("charge_now") / int_from_file("current_now"))
+
+if is_prompt:
+    color = "232"
+    print("%F{{{}}}{}%%{}%f".format(color, p, dt))
+else:
+    print("{}%{} {}".format(p, dt, rs))
     print(p)
     r, g, b = colorsys.hsv_to_rgb((p * 1.2) / 360, 0.99, 0.99)
     print("#%02x%02x%02x" % (int(r*256), int(g*256), int(b*256)))
-else:
-    color = "red" if p < 20 else "yellow" if p < 40 else "green"
-    color = "232"
-    print("%F{{{}}}{}%%{}%f".format(color, p, dt))
