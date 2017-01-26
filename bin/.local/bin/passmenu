@@ -1,0 +1,2 @@
+#!/bin/zsh
+pass -c $(find ~/.password-store -name '*.gpg' -print | sed -e s@"$HOME/.password-store/"@@ -e s/.gpg$// | sort | rofi -dmenu -p "Password: ")

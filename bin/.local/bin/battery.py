@@ -31,13 +31,16 @@ if p > 100:
     p = 100
 
 dt = ("+" if c else "-") if p < 100 else ""
-rs = hours_to_h2m(int_from_file("charge_now") / int_from_file("current_now"))
+try:
+    rs = hours_to_h2m(int_from_file("charge_now") / int_from_file("current_now"))
+except:
+    rs = ""
 
 if is_prompt:
     color = "232"
     print("%F{{{}}}{}%%{}%f".format(color, p, dt))
 else:
-    print("{}%{} {}".format(p, dt, rs))
+    print("{}%{}{}{}".format(p, dt, " " if rs else "", rs))
     print(p)
     r, g, b = colorsys.hsv_to_rgb((p * 1.2) / 360, 0.99, 0.99)
     print("#%02x%02x%02x" % (int(r*256), int(g*256), int(b*256)))

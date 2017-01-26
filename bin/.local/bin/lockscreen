@@ -1,0 +1,9 @@
+#!/bin/zsh
+xrandr | head -n 1 | cut -d, -f2 | cut -d' ' -f3,5 | read width height
+newwidth=$(( width / 16 ))
+newheight=$(( height / 16 ))
+
+scrot /tmp/i.png
+convert -resize ${newwidth}x${newheight} /tmp/i.png /tmp/i.png
+convert -resize ${width}x${height} /tmp/i.png /tmp/i.png
+i3lock -i /tmp/i.png
