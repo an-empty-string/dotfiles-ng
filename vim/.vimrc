@@ -70,6 +70,7 @@ set undolevels=1000
 set undoreload=10000
 set t_Co=256
 set laststatus=2
+set printfont=:h9
 let g:airline_powerline_fonts=1
 
 filetype off
