@@ -82,7 +82,7 @@ bind 233 exec "xbacklight -inc 10"
 exec "volumeicon"
 exec "nm-applet"
 exec "redshift"
-exec ~/.local/bin/xearth -pos "fixed 34.716 -86.583" -bigstars 50 -gamma 2.6 -label -nomarkers
+exec ~/.local/bin/xearth -pos "fixed 34.716 -86.583" -bigstars 50 -gamma 2.6 -label -labelpos +10+10 -markers -markerfile ~/xearth-labels.txt -font "-*-terminus-*-r-normal-*-*-180-*-*-*-*-*-*"
 
 bar {
     status_command ~/.local/bin/i3blocks
