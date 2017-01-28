@@ -1,23 +1,3 @@
-URxvt.depth: 32
-URxvt.perl-lib: /usr/lib/urxvt/perl:/home/fwilson/software/urxvt-perl
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,resize-font
-URxvt.letterSpace: -1
-
-URxvt.font: xft:Input Mono Narrow:size=11,xft:xos4 Terminus:size=11
-URxvt.matcher.button: 1
-URxvt.url-select.underline: True
-URxvt.url-select.launcher: /usr/bin/firefox
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.resize-font.show: C-slash
-URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger: C-Up
-URxvt.clipboard.pastecmd: xsel -o
-URxvt.clipboard.copycmd: xsel -i
-URxvt.meta8: False
-URxvt.scrollBar: False
-Xcursor.size: 40
-Xcursor.theme: Adwaita
-
 ! Base16 Twilight
 ! Scheme: David Hart (https://github.com/hartbit)
 
@@ -41,7 +21,6 @@ Xcursor.theme: Adwaita
 *.foreground:   base05
 *.background:   base00
 *.cursorColor:  base05
-
 *.color0:       base00
 *.color1:       base08
 *.color2:       base0B
@@ -50,7 +29,6 @@ Xcursor.theme: Adwaita
 *.color5:       base0E
 *.color6:       base0C
 *.color7:       base05
-
 *.color8:       base03
 *.color9:       base08
 *.color10:      base0B
@@ -59,9 +37,6 @@ Xcursor.theme: Adwaita
 *.color13:      base0E
 *.color14:      base0C
 *.color15:      base07
-
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
 *.color16:      base09
 *.color17:      base0F
 *.color18:      base01
@@ -69,8 +44,44 @@ Xcursor.theme: Adwaita
 *.color20:      base04
 *.color21:      base06
 
+! cursor setup
+
+Xcursor.size: 40
+Xcursor.theme: Adwaita
+
+! urxvt setup
+
+URxvt.depth: 32
+URxvt.perl-lib: /usr/lib/urxvt/perl:/home/fwilson/software/urxvt-perl
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,resize-font
+URxvt.letterSpace: -1
+URxvt.font: xft:Input Mono Narrow:size=11,xft:xos4 Terminus:size=11
+URxvt.matcher.button: 1
+URxvt.url-select.underline: True
+URxvt.url-select.launcher: /usr/bin/firefox
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.resize-font.show: C-slash
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
+URxvt.clipboard.pastecmd: xsel -o
+URxvt.clipboard.copycmd: xsel -i
+URxvt.meta8: False
+URxvt.scrollBar: False
+
+! rofi setup
+
 rofi.color-enabled: true
 rofi.color-window: #393939, #393939, #268bd2
 rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
 rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
 rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+
+! Xearth setup
+
+xearth.pos: fixed 34.716 -86.583
+xearth.bigstars: 50
+xearth.gamma: 2.6
+xearth.label: true
+xearth.labelpos: +10+10
+xearth.markers: false
+xearth.font: -*-terminus-*-r-normal-*-*-180-*-*-*-*-*-*
