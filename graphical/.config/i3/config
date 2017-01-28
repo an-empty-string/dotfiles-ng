@@ -1,6 +1,6 @@
 set $mod Mod4
 
-font pango:xos4 Terminus 11
+font pango:Input Mono Narrow 11
 floating_modifier $mod
 new_window 1pixel
 
@@ -43,6 +43,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -55,12 +56,11 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 bindsym $mod+Shift+r restart
-
 bindsym $mod+Shift+e exit
-bindsym $mod+Shift+z exec "i3lock -c 000000"
+bindsym $mod+Shift+z exec "~/.local/bin/lockscreen"
 
 bindsym $mod+q exec "i3-input"
-bindsym $mod+p exec "passmenu"
+bindsym $mod+p exec "~/.local/bin/passmenu"
 
 mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
@@ -80,6 +80,9 @@ bind 232 exec "xbacklight -dec 10"
 bind 233 exec "xbacklight -inc 10"
 
 exec "volumeicon"
+exec "nm-applet"
+exec "redshift"
+exec ~/.local/bin/xearth -pos "fixed 34.716 -86.583" -bigstars 50 -gamma 2.6 -label -nomarkers
 
 bar {
     status_command ~/.local/bin/i3blocks
