@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+import i3
+result = i3.filter(focused=True)
+if not result:
+    print("")
+else:
+    result = result[0]
+    if "window_properties" in result:
+        print(result["window_properties"]["title"], end="")
+        if "marks" in result:
+            print(" :: marked[{}]".format(",".join(result["marks"])), end="")
+    print()
