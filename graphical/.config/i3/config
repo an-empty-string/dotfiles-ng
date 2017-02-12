@@ -82,7 +82,11 @@ bind 233 exec "xbacklight -inc 10"
 exec "volumeicon"
 exec "nm-applet"
 exec "redshift"
-exec ~/.local/bin/xearth
+exec_always "feh --bg-fill ~/.background.png"
+
+gaps inner 10
+gaps outer 0
+smart_borders on
 
 bar {
     status_command ~/.local/bin/i3blocks
