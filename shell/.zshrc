@@ -9,14 +9,19 @@ alias ls="ls --color=auto"
 setopt AUTO_CD
 setopt AUTO_PUSHD
 
+setopt EXTENDED_HISTORY
+setopt HIST_VERIFY
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
+
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=100000
+SAVEHIST=100000
 
 ## Variables
 
 if test -z $SSH_CONNECTION; then promptcolor=green; else; promptcolor=yellow; fi
-eval $(dircolors ~/.dircolors)
+if [ -e ~/.dircolors ]; then eval $(dircolors ~/.dircolors); fi
 
 rightsep=""
 
@@ -72,8 +77,6 @@ function set-rprompt {
         rprompt-part 6 $(battery.py prompt)
     fi
     rprompt-done
-
-    #RPROMPT="%F{8}${rightsep}%f%K{8} %B$(battery.py prompt)%b %F{${vicolor}}${rightsep}%f%k%K{${vicolor}}%B %F{white}${vimode}%f %b%k"
 }
 set-rprompt
 
@@ -92,8 +95,7 @@ compinit
 
 pgrep -u $USER gpg-agent > /dev/null || gpg-agent --daemon > ~/.gpgagent
 test -e ~/.gpgagent && test -z $SSH_AUTH_SOCK && source ~/.gpgagent
-
-source /usr/share/autojump/autojump.zsh
+test -e /usr/share/autojump/autojump.zsh && source /usr/share/autojump/autojump.zsh
 
 bindkey -v
 
