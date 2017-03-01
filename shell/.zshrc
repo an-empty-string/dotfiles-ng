@@ -67,8 +67,8 @@ function rprompt-done {
 
 function set-rprompt {
     case $KEYMAP in
-        vicmd) vimode="NORMAL"; vicolor="green";;
-        *) vimode="INSERT"; vicolor="blue";;
+        vicmd) vimode="NORMAL"; vicolor="34";;
+        *) vimode="INSERT"; vicolor="39";;
     esac
 
     rprompt-start

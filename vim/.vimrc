@@ -68,7 +68,7 @@ set undodir=~/.vim/undo
 set undofile
 set undolevels=1000
 set undoreload=10000
-set t_Co=256
+" set t_Co=256
 set laststatus=2
 set printfont=:h9
 let g:airline_powerline_fonts=1
@@ -89,4 +89,7 @@ Plugin 'vim-airline/vim-airline'
 call vundle#end()
 filetype plugin indent on
 
-colorscheme Mustang
+colorscheme base16-monokai
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+highlight CursorLineNr term=bold cterm=NONE ctermfg=LightGrey ctermbg=NONE gui=NONE guifg=LightGrey guibg=NONE
+highlight Normal ctermbg=none

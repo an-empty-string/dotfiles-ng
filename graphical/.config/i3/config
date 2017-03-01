@@ -79,15 +79,24 @@ bindsym $mod+minus scratchpad show
 bind 232 exec "xbacklight -dec 10"
 bind 233 exec "xbacklight -inc 10"
 
-exec "volumeicon"
+for_window [title="pinentry-gtk-2"] floating enable
+
 exec "nm-applet"
 exec "redshift"
+exec "compton"
+exec_always "killall polybar; polybar bottom"
 exec_always "feh --bg-fill ~/.background.png"
 
-gaps inner 10
+gaps inner 20
 gaps outer 0
+smart_gaps on
 smart_borders on
+
+client.focused #a59f85 #285577 #ffffff #f92672 #a59f85
+client.unfocused #75715e #222222 #888888 #292d2e #75715e
 
 bar {
     status_command ~/.local/bin/i3blocks
+    i3bar_command /bin/true
+    mode invisible
 }
