@@ -39,7 +39,7 @@
 #define base0F #cc6633
 
 *.foreground:   base05
-*.background:   [90]base00
+*.background:   [70]base00
 *.cursorColor:  base05
 *.color0:       base00
 *.color1:       base08
