@@ -85,6 +85,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'jamessan/vim-gnupg'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-airline/vim-airline'
+Plugin 'lervag/vimtex'
 
 call vundle#end()
 filetype plugin indent on
