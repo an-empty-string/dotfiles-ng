@@ -68,7 +68,7 @@ set undodir=~/.vim/undo
 set undofile
 set undolevels=1000
 set undoreload=10000
-" set t_Co=256
+set t_Co=256
 set laststatus=2
 set printfont=:h9
 let g:airline_powerline_fonts=1
@@ -86,6 +86,7 @@ Plugin 'jamessan/vim-gnupg'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'vim-airline/vim-airline'
 Plugin 'lervag/vimtex'
+Plugin 'evanmiller/nginx-vim-syntax'
 
 call vundle#end()
 filetype plugin indent on
