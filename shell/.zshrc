@@ -98,4 +98,4 @@ test -e ~/.gpgagent && test -z $SSH_AUTH_SOCK && source ~/.gpgagent
 test -e /usr/share/autojump/autojump.zsh && source /usr/share/autojump/autojump.zsh
 
 bindkey -v
-
+which task > /dev/null && task list due limit:5
